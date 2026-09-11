@@ -32,3 +32,160 @@ parts with different time complexity,
 when determining the final time complexity 
 we only look at the largest factor.
 Because the biggest factor will slow down an algorithm the most.
+
+
+
+
+GENERAL RULE
+
+To decide whether an algorithm will work within the time limit:
+
+1. Find the WORST-CASE time complexity of your algorithm.
+2. Take the maximum possible value of N from the constraints.
+3. Estimate the number of operations.
+4. If the number of operations is below approximately 10^8,
+   the algorithm will usually run within the time limit.
+
+## NOTE:
+10^8 is a commonly used rough threshold.
+The actual limit depends on the language, problem, hardware,
+and time limit.
+
+============================================================
+STANDARD ALGORITHMS
+
+1. LOOPS
++--------------------------------------+------------+------------------+
+| Algorithm                             | Complexity | Max N (approx.)  |
++--------------------------------------+------------+------------------+
+| Single loop till N                    | O(N)       | 10^8             |
+| Nested loops, both till N             | O(N^2)     | 10^4             |
+| Two loops, one after another till N   | O(N)       | 10^8             |
++--------------------------------------+------------+------------------+
+
+## IMPORTANT:
+
+Two loops one after another:
+
+```
+for i = 1 to N
+    ...
+
+for j = 1 to N
+    ...
+```
+
+Total operations:
+
+```
+N + N = 2N
+```
+
+Ignore constants in Big-O:
+
+```
+O(2N) = O(N)
+```
+
+Nested loops:
+
+```
+for i = 1 to N
+    for j = 1 to N
+        ...
+```
+
+Total operations:
+
+```
+N * N = N^2
+```
+
+Therefore:
+
+```
+O(N^2)
+```
+
+============================================================
+SEARCHING
++--------------------------------------+------------+------------------+
+| Algorithm                             | Complexity | Max N (approx.)  |
++--------------------------------------+------------+------------------+
+| Linear Search                         | O(N)       | 10^8             |
+| Binary Search                         | O(log N)   | Very large N     |
++--------------------------------------+------------+------------------+
+
+## LINEAR SEARCH
+
+Checks elements one by one.
+
+Example:
+
+```
+[10, 20, 30, 40, 50]
+```
+
+Searching for 40:
+
+```
+10 -> 20 -> 30 -> 40
+```
+
+Worst case:
+
+```
+N elements checked
+```
+
+Therefore:
+
+```
+O(N)
+```
+
+## BINARY SEARCH
+
+Works on a SORTED array.
+
+Each step cuts the search space approximately in half.
+
+Example:
+
+```
+N
+N/2
+N/4
+N/8
+...
+```
+
+Therefore:
+
+```
+O(log N)
+```
+
+This is why binary search can handle a much larger N
+than linear search.
+
+============================================================
+SORTING
++--------------------------------------+------------+------------------+
+| Algorithm                             | Complexity | Max N (approx.)  |
++--------------------------------------+------------+------------------+
+| Bubble Sort                           | O(N^2)     | 10^4             |
+| Insertion Sort                        | O(N^2)     | 10^4             |
+| Merge Sort                             | O(N log N) | 10^7             |
++--------------------------------------+------------+------------------+
+
+============================================================
+ARRAY / LIST OPERATIONS
++-----------------------------------------------+------------+
+| Operation                                     | Complexity |
++-----------------------------------------------+------------+
+| Add element at the END of a list              | O(1)       |
+| Add element at the START of a list            | O(N)       |
+| Count occurrences of a number in an array     | O(N)       |
++-----------------------------------------------+------------+
+
