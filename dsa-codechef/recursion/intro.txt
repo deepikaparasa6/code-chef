@@ -1,0 +1,10 @@
+Recursion is a programming technique in which a function calls itself. 
+It is used in a lot of important algorithms like DFS, Dynamic Programming and Backtracking.
+
+Call Stack: A call stack is a memory stack where functions are pushed when they are called. 
+It is used to keep track of currently running function, their priority and the order they were called in.
+
+Base Condition
+To prevent the problem discussed in the previous section, we use what is called a Base Condition.
+
+We set a condition upon which the function stops calling itself and returns. This case is called the Base Case.
